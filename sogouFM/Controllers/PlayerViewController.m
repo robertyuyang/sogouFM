@@ -11,6 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "PlayerServiceFactory.h"
+#import "ContentServices.h"
 
 @interface PlayerViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -57,7 +58,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if(self.track == nil){
+        NSArray* array = [[[ContentServices alloc] init] fetchTracks];
+        if(array != nil || array.count > 0){
+            self.track = [array firstObject];
+        }
     
+    }
     [self.playerService addDelegate:self];
     
     self.view.backgroundColor = [UIColor whiteColor];

@@ -143,8 +143,6 @@
 				E1C1ED411E9FB1EE00E963A1 /* AppDelegate.h */,
 				E1C1ED421E9FB1EE00E963A1 /* AppDelegate.m */,
 				E1C3B3531EA37BEB002B3F96 /* sogouFM-prefix.pch */,
-				E1C1ED441E9FB1EE00E963A1 /* ViewController.h */,
-				E1C1ED451E9FB1EE00E963A1 /* ViewController.m */,
 				E1C1ED471E9FB1EE00E963A1 /* Main.storyboard */,
 				E1C1ED4A1E9FB1EE00E963A1 /* Assets.xcassets */,
 				E1C1ED4C1E9FB1EE00E963A1 /* LaunchScreen.storyboard */,
@@ -232,6 +230,8 @@
 		E1C1ED931EA0C86B00E963A1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E1C1ED441E9FB1EE00E963A1 /* ViewController.h */,
+				E1C1ED451E9FB1EE00E963A1 /* ViewController.m */,
 				E1C1ED941EA0C8D800E963A1 /* PlayerViewController.h */,
 				E1C1ED951EA0C8D800E963A1 /* PlayerViewController.m */,
 			);
