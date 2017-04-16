@@ -1,0 +1,18 @@
+//
+//  sogouFM-prefix.pch
+//  sogouFM
+//
+//  Created by Robert on 16/04/2017.
+//  Copyright © 2017 Sogou. All rights reserved.
+//
+
+#ifndef sogouFM_prefix_pch
+#define sogouFM_prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#endif /* sogouFM_prefix_pch */
