@@ -10,20 +10,28 @@
 #import <UIKit/UIkit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
+
+#import "PlayListTableViewCell.h"
+
 #import "PlayerServiceFactory.h"
 #import "ContentServices.h"
 
-@interface PlayerViewController ()
+
+
+@interface PlayerViewController ()<UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UISlider *Progress;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
+@property (weak, nonatomic) IBOutlet UITableView *playListTableView;
 
 @property (nonatomic, strong) id<PlayerService> playerService;
 @property (nonatomic, strong) NSTimer* timer;
 @property (nonatomic, strong) NSMutableDictionary* nowPlayingInfo;
+
+@property (nonatomic, strong) NSArray<Track*>* playList;
 @end
 
 
@@ -63,10 +71,14 @@
         if(array != nil || array.count > 0){
             self.track = [array firstObject];
         }
+        
+        self.playList = array;
     
     }
     [self.playerService addDelegate:self];
-    
+  
+    //[self.playListTableView registerClass:[PlayListTableViewCell class] forCellReuseIdentifier:@"PlayListTableViewCell"];
+    self.playListTableView.dataSource = self;
     self.view.backgroundColor = [UIColor whiteColor];
     self.imageView.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:self.track.imgUrl]]];
     
@@ -184,6 +196,33 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mask UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return self.playList ? self.playList.count : 0;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    PlayListTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"PlayListTableViewCell" forIndexPath:indexPath];
+   
+    
+    
+    if(self.playList == nil || self.playList.count <= indexPath.row ){
+        return nil;
+    }
+    
+    Track* track = [self.playList objectAtIndex:indexPath.row];
+    cell.titleLabel.text =  track.title;
+    cell.authorLabel.text = track.author.authorName;
+    cell.coverImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:track.imgUrl]]];
+    
+    return cell;
 }
 
 /*

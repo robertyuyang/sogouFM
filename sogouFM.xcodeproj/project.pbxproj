@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E1C1ED401E9FB1EE00E963A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1ED3F1E9FB1EE00E963A1 /* main.m */; };
 		E1C1ED431E9FB1EE00E963A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1ED421E9FB1EE00E963A1 /* AppDelegate.m */; };
-		E1C1ED461E9FB1EE00E963A1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1ED451E9FB1EE00E963A1 /* ViewController.m */; };
 		E1C1ED491E9FB1EE00E963A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1C1ED471E9FB1EE00E963A1 /* Main.storyboard */; };
 		E1C1ED4B1E9FB1EE00E963A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1C1ED4A1E9FB1EE00E963A1 /* Assets.xcassets */; };
 		E1C1ED4E1E9FB1EE00E963A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1C1ED4C1E9FB1EE00E963A1 /* LaunchScreen.storyboard */; };
@@ -31,12 +30,14 @@
 		E1C1ED901EA0C85300E963A1 /* DOUMPMediaLibraryAssetLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1ED7C1EA0C85300E963A1 /* DOUMPMediaLibraryAssetLoader.m */; };
 		E1C1ED911EA0C85300E963A1 /* DOUSimpleHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1ED7E1EA0C85300E963A1 /* DOUSimpleHTTPRequest.m */; };
 		E1C1ED921EA0C85300E963A1 /* NSData+DOUMappedFile.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1ED801EA0C85300E963A1 /* NSData+DOUMappedFile.m */; };
-		E1C1ED961EA0C8D800E963A1 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1ED951EA0C8D800E963A1 /* PlayerViewController.m */; };
 		E1C1ED9C1EA0ECE100E963A1 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1ED9B1EA0ECE100E963A1 /* Track.m */; };
 		E1C3B34B1EA280C2002B3F96 /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B34A1EA280C2002B3F96 /* Author.m */; };
 		E1C3B34F1EA287FB002B3F96 /* ContentServices.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B34E1EA287FB002B3F96 /* ContentServices.m */; };
 		E1C3B3561EA3A470002B3F96 /* PlayerServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3551EA3A470002B3F96 /* PlayerServiceFactory.m */; };
 		E1C3B3591EA3A4BE002B3F96 /* DouPlayerService.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3581EA3A4BE002B3F96 /* DouPlayerService.m */; };
+		E1C3B3661EA3BF87002B3F96 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3631EA3BF87002B3F96 /* PlayerViewController.m */; };
+		E1C3B3671EA3BF87002B3F96 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3651EA3BF87002B3F96 /* ViewController.m */; };
+		E1C3B36D1EA4811A002B3F96 /* PlayListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B36C1EA4811A002B3F96 /* PlayListTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +45,6 @@
 		E1C1ED3F1E9FB1EE00E963A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E1C1ED411E9FB1EE00E963A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E1C1ED421E9FB1EE00E963A1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E1C1ED441E9FB1EE00E963A1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E1C1ED451E9FB1EE00E963A1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E1C1ED481E9FB1EE00E963A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1C1ED4A1E9FB1EE00E963A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1C1ED4D1E9FB1EE00E963A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -90,8 +89,6 @@
 		E1C1ED7E1EA0C85300E963A1 /* DOUSimpleHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUSimpleHTTPRequest.m; sourceTree = "<group>"; };
 		E1C1ED7F1EA0C85300E963A1 /* NSData+DOUMappedFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+DOUMappedFile.h"; sourceTree = "<group>"; };
 		E1C1ED801EA0C85300E963A1 /* NSData+DOUMappedFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+DOUMappedFile.m"; sourceTree = "<group>"; };
-		E1C1ED941EA0C8D800E963A1 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerViewController.h; path = Controllers/PlayerViewController.h; sourceTree = "<group>"; };
-		E1C1ED951EA0C8D800E963A1 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = Controllers/PlayerViewController.m; sourceTree = "<group>"; };
 		E1C1ED9A1EA0ECE100E963A1 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Track.h; path = Models/Track.h; sourceTree = "<group>"; };
 		E1C1ED9B1EA0ECE100E963A1 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Track.m; path = Models/Track.m; sourceTree = "<group>"; };
 		E1C3B3491EA280C2002B3F96 /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Author.h; path = Models/Author.h; sourceTree = "<group>"; };
@@ -104,6 +101,12 @@
 		E1C3B3551EA3A470002B3F96 /* PlayerServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerServiceFactory.m; path = Services/PlayerServiceFactory.m; sourceTree = "<group>"; };
 		E1C3B3571EA3A4BE002B3F96 /* DouPlayerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DouPlayerService.h; path = Services/DouPlayerService.h; sourceTree = "<group>"; };
 		E1C3B3581EA3A4BE002B3F96 /* DouPlayerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DouPlayerService.m; path = Services/DouPlayerService.m; sourceTree = "<group>"; };
+		E1C3B3621EA3BF87002B3F96 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		E1C3B3631EA3BF87002B3F96 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		E1C3B3641EA3BF87002B3F96 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E1C3B3651EA3BF87002B3F96 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E1C3B36B1EA4811A002B3F96 /* PlayListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayListTableViewCell.h; sourceTree = "<group>"; };
+		E1C3B36C1EA4811A002B3F96 /* PlayListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayListTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +139,9 @@
 		E1C1ED3D1E9FB1EE00E963A1 /* sogouFM */ = {
 			isa = PBXGroup;
 			children = (
+				E1C3B3681EA480E7002B3F96 /* Views */,
+				E1C3B3611EA3BF87002B3F96 /* ViewControllers */,
 				E1C3B34C1EA28770002B3F96 /* Services */,
-				E1C1ED931EA0C86B00E963A1 /* Controllers */,
 				E1C1ED571EA0C7CB00E963A1 /* Vendors */,
 				E1C1ED561EA0C7C200E963A1 /* Models */,
 				E1C1ED411E9FB1EE00E963A1 /* AppDelegate.h */,
@@ -227,17 +231,6 @@
 			path = Vendors/DOUAudioStreamer;
 			sourceTree = "<group>";
 		};
-		E1C1ED931EA0C86B00E963A1 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				E1C1ED441E9FB1EE00E963A1 /* ViewController.h */,
-				E1C1ED451E9FB1EE00E963A1 /* ViewController.m */,
-				E1C1ED941EA0C8D800E963A1 /* PlayerViewController.h */,
-				E1C1ED951EA0C8D800E963A1 /* PlayerViewController.m */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
 		E1C3B34C1EA28770002B3F96 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +243,34 @@
 				E1C3B3581EA3A4BE002B3F96 /* DouPlayerService.m */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		E1C3B3611EA3BF87002B3F96 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E1C3B3621EA3BF87002B3F96 /* PlayerViewController.h */,
+				E1C3B3631EA3BF87002B3F96 /* PlayerViewController.m */,
+				E1C3B3641EA3BF87002B3F96 /* ViewController.h */,
+				E1C3B3651EA3BF87002B3F96 /* ViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E1C3B3681EA480E7002B3F96 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E1C3B36A1EA480FC002B3F96 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E1C3B36A1EA480FC002B3F96 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E1C3B36B1EA4811A002B3F96 /* PlayListTableViewCell.h */,
+				E1C3B36C1EA4811A002B3F96 /* PlayListTableViewCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,15 +348,16 @@
 				E1C3B34F1EA287FB002B3F96 /* ContentServices.m in Sources */,
 				E1C1ED8B1EA0C85300E963A1 /* DOUAudioSpatialAnalyzer.m in Sources */,
 				E1C1ED871EA0C85300E963A1 /* DOUAudioFrequencyAnalyzer.m in Sources */,
+				E1C3B36D1EA4811A002B3F96 /* PlayListTableViewCell.m in Sources */,
 				E1C1ED8E1EA0C85300E963A1 /* DOUAudioVisualizer.m in Sources */,
-				E1C1ED461E9FB1EE00E963A1 /* ViewController.m in Sources */,
 				E1C1ED821EA0C85300E963A1 /* DOUAudioAnalyzer.m in Sources */,
+				E1C3B3661EA3BF87002B3F96 /* PlayerViewController.m in Sources */,
 				E1C1ED861EA0C85300E963A1 /* DOUAudioFileProvider.m in Sources */,
 				E1C1ED881EA0C85300E963A1 /* DOUAudioLPCM.m in Sources */,
 				E1C1ED8A1EA0C85300E963A1 /* DOUAudioRenderer.m in Sources */,
+				E1C3B3671EA3BF87002B3F96 /* ViewController.m in Sources */,
 				E1C1ED891EA0C85300E963A1 /* DOUAudioPlaybackItem.m in Sources */,
 				E1C3B3591EA3A4BE002B3F96 /* DouPlayerService.m in Sources */,
-				E1C1ED961EA0C8D800E963A1 /* PlayerViewController.m in Sources */,
 				E1C1ED901EA0C85300E963A1 /* DOUMPMediaLibraryAssetLoader.m in Sources */,
 				E1C1ED831EA0C85300E963A1 /* DOUAudioDecoder.m in Sources */,
 				E1C1ED811EA0C85300E963A1 /* DOUAudioAnalyzer+Default.m in Sources */,
