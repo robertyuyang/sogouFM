@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString* url;
 @property (nonatomic) NSUInteger duration;
 @property (nonatomic) NSString* imgUrl;
+@property (nonatomic) NSString* sid;
 
 -(instancetype) initWithJSONString: (NSString*) jsonString;
 @end

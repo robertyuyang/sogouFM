@@ -12,7 +12,7 @@
 
 @protocol PlayerServiceDelegate <NSObject>
 
-@optional
+@required
 
 -(void)PlayerServiceProgressUpdated:(NSUInteger)currentTime duration:(NSUInteger)duration;
 

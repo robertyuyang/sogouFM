@@ -38,6 +38,8 @@
 		E1C3B3661EA3BF87002B3F96 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3631EA3BF87002B3F96 /* PlayerViewController.m */; };
 		E1C3B3671EA3BF87002B3F96 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3651EA3BF87002B3F96 /* ViewController.m */; };
 		E1C3B36D1EA4811A002B3F96 /* PlayListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B36C1EA4811A002B3F96 /* PlayListTableViewCell.m */; };
+		E1C3B3711EA516B3002B3F96 /* PlayerPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3701EA516B3002B3F96 /* PlayerPresenter.m */; };
+		E1C3B3741EA516F4002B3F96 /* TrackPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3731EA516F4002B3F96 /* TrackPresenter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +109,10 @@
 		E1C3B3651EA3BF87002B3F96 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E1C3B36B1EA4811A002B3F96 /* PlayListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayListTableViewCell.h; sourceTree = "<group>"; };
 		E1C3B36C1EA4811A002B3F96 /* PlayListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayListTableViewCell.m; sourceTree = "<group>"; };
+		E1C3B36F1EA516B3002B3F96 /* PlayerPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerPresenter.h; sourceTree = "<group>"; };
+		E1C3B3701EA516B3002B3F96 /* PlayerPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerPresenter.m; sourceTree = "<group>"; };
+		E1C3B3721EA516F4002B3F96 /* TrackPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackPresenter.h; sourceTree = "<group>"; };
+		E1C3B3731EA516F4002B3F96 /* TrackPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackPresenter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +145,7 @@
 		E1C1ED3D1E9FB1EE00E963A1 /* sogouFM */ = {
 			isa = PBXGroup;
 			children = (
+				E1C3B36E1EA51673002B3F96 /* Presenter */,
 				E1C3B3681EA480E7002B3F96 /* Views */,
 				E1C3B3611EA3BF87002B3F96 /* ViewControllers */,
 				E1C3B34C1EA28770002B3F96 /* Services */,
@@ -273,6 +280,17 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		E1C3B36E1EA51673002B3F96 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E1C3B36F1EA516B3002B3F96 /* PlayerPresenter.h */,
+				E1C3B3701EA516B3002B3F96 /* PlayerPresenter.m */,
+				E1C3B3721EA516F4002B3F96 /* TrackPresenter.h */,
+				E1C3B3731EA516F4002B3F96 /* TrackPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -353,11 +371,13 @@
 				E1C1ED821EA0C85300E963A1 /* DOUAudioAnalyzer.m in Sources */,
 				E1C3B3661EA3BF87002B3F96 /* PlayerViewController.m in Sources */,
 				E1C1ED861EA0C85300E963A1 /* DOUAudioFileProvider.m in Sources */,
+				E1C3B3711EA516B3002B3F96 /* PlayerPresenter.m in Sources */,
 				E1C1ED881EA0C85300E963A1 /* DOUAudioLPCM.m in Sources */,
 				E1C1ED8A1EA0C85300E963A1 /* DOUAudioRenderer.m in Sources */,
 				E1C3B3671EA3BF87002B3F96 /* ViewController.m in Sources */,
 				E1C1ED891EA0C85300E963A1 /* DOUAudioPlaybackItem.m in Sources */,
 				E1C3B3591EA3A4BE002B3F96 /* DouPlayerService.m in Sources */,
+				E1C3B3741EA516F4002B3F96 /* TrackPresenter.m in Sources */,
 				E1C1ED901EA0C85300E963A1 /* DOUMPMediaLibraryAssetLoader.m in Sources */,
 				E1C1ED831EA0C85300E963A1 /* DOUAudioDecoder.m in Sources */,
 				E1C1ED811EA0C85300E963A1 /* DOUAudioAnalyzer+Default.m in Sources */,

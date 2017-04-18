@@ -11,7 +11,7 @@
 
 @interface PlayerViewController : UIViewController
 
-@property (nonatomic, strong) Track* track;
+//@property (nonatomic, strong) Track* track;
 
 
 +(PlayerViewController*) sharedInstance;

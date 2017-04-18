@@ -14,7 +14,9 @@
 #import "PlayListTableViewCell.h"
 
 #import "PlayerServiceFactory.h"
-#import "ContentServices.h"
+
+#import "PlayerPresenter.h"
+//#import "ContentServices.h"
 
 
 
@@ -27,23 +29,24 @@
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 @property (weak, nonatomic) IBOutlet UITableView *playListTableView;
 
-@property (nonatomic, strong) id<PlayerService> playerService;
-@property (nonatomic, strong) NSTimer* timer;
+//@property (nonatomic, strong) id<PlayerService> playerService;
+//@property (nonatomic, strong) NSTimer* timer;
 @property (nonatomic, strong) NSMutableDictionary* nowPlayingInfo;
 
-@property (nonatomic, strong) NSArray<Track*>* playList;
+//@property (nonatomic, strong) NSArray<Track*>* playList;
+@property (nonatomic, strong) PlayerPresenter* playerPresenter;
 @end
 
 
 @implementation PlayerViewController
 
--(id<PlayerService>)playerService {
+/*-(id<PlayerService>)playerService {
     if(_playerService == nil){
         _playerService = [PlayerServiceFactory create];
     }
     
     return _playerService;
-}
+}*/
 
 +(PlayerViewController*) sharedInstance {
     static PlayerViewController* instance;
@@ -66,21 +69,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if(self.track == nil){
-        NSArray* array = [[[ContentServices alloc] init] fetchTracks];
-        if(array != nil || array.count > 0){
-            self.track = [array firstObject];
-        }
-        
-        self.playList = array;
     
-    }
-    [self.playerService addDelegate:self];
-  
+    self.playerPresenter = [[PlayerPresenter alloc] init];
+    self.playerPresenter.callback = self;
+    
+    
     //[self.playListTableView registerClass:[PlayListTableViewCell class] forCellReuseIdentifier:@"PlayListTableViewCell"];
     self.playListTableView.dataSource = self;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.imageView.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:self.track.imgUrl]]];
+    
     
     [self playAudio];
     // Do any additional setup after loading the view.
@@ -88,7 +85,8 @@
 
 -(void) play {
     
-    [self.playerService play];
+    [self.playerPresenter resume];
+    //[self.playerService play];
    
     /*
     NSMutableDictionary* nowPlayingInfo = self.nowPlayingInfo;
@@ -101,7 +99,7 @@
     
 }
 -(void) pause {
-    [self.playerService pause];
+    [self.playerPresenter pause];
     
     NSMutableDictionary* nowPlayingInfo = self.nowPlayingInfo;
     
@@ -163,12 +161,20 @@
     
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
-    [self.playerService playWithTrack:self.track];
-    
-    self.titleLabel.text = self.track.title;
+    [self.playerPresenter play];
+   
+    TrackPresenter* trackPresenter = [self.playerPresenter currentTrackPresenter];
+    self.titleLabel.text = [trackPresenter trackTitle];
+    //self.titleLabel.text = self.track.title;
     [self.titleLabel sizeToFit];
-    self.authorLabel.text = self.track.author.authorName;
+    self.authorLabel.text = [trackPresenter trackAuthorName];
+    //self.authorLabel.text = self.track.author.authorName;
     [self.authorLabel sizeToFit];
+    //self.imageView.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:self.track.imgUrl]]];
+    self.imageView.image = [trackPresenter trackImage];
+    
+    
+    
     
     
     //[self.playerService addObserver:self forKeyPath:@"duration" options:NSKeyValueObservingOptionNew context:nil];
@@ -197,12 +203,33 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mask  PlayerPresenterDelegate
+
+-(void)playListChanged {
+    [self.playListTableView reloadData];
+}
+-(void)currentTrackChanged {
+    
+}
+
+-(void)playerProgressUpdatedWithCurrentTimeText:(NSString*)currentTimeText
+                                   durationText:(NSString*)durationText
+                                        percent:(double)percent {
+    
+    self.Progress.maximumValue = 1;
+    self.Progress.minimumValue = 0;
+    self.Progress.value = percent;
+    
+    self.currentTimeLabel.text = currentTimeText;
+    self.durationLabel.text = durationText;
+}
+
 
 #pragma mask UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.playList ? self.playList.count : 0;
+    return [self.playerPresenter trackCount];
 }
 
 
@@ -211,16 +238,23 @@
     
     PlayListTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"PlayListTableViewCell" forIndexPath:indexPath];
    
-    
-    
-    if(self.playList == nil || self.playList.count <= indexPath.row ){
+    if(self.playerPresenter == nil){
+        return nil;
+    }
+    if([self.playerPresenter trackCount] <= indexPath.row){
         return nil;
     }
     
-    Track* track = [self.playList objectAtIndex:indexPath.row];
+    
+    TrackPresenter* trackPresenter = [self.playerPresenter trackForIndex:indexPath.row];
+    cell.titleLabel.text = [trackPresenter trackTitle];
+    cell.authorLabel.text = [trackPresenter trackAuthorName];
+    cell.imageView.image = [trackPresenter trackImage];
+    
+    /*Track* track = [self.playList objectAtIndex:indexPath.row];
     cell.titleLabel.text =  track.title;
     cell.authorLabel.text = track.author.authorName;
-    cell.coverImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:track.imgUrl]]];
+    cell.coverImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:track.imgUrl]]];*/
     
     return cell;
 }

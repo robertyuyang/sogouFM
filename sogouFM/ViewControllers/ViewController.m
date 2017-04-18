@@ -45,7 +45,7 @@
     
     Track* track = [array firstObject];
     PlayerViewController* playerVC = [PlayerViewController sharedInstance];
-    playerVC.track = nil;//track;
+    //playerVC.track = nil;//track;
     [self presentViewController:playerVC animated:YES completion:nil];
 }
 @end

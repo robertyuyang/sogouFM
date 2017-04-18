@@ -51,12 +51,16 @@
         for (NSDictionary *song in [dict objectForKey:@"song"]) {
             Track *track = [[Track alloc] init];
             Author* author = [[Author alloc] init];
-            author.authorName = [song objectForKey:@"artist"];
+            NSDictionary* singersDict = [[song objectForKey:@"singers"] firstObject];
+            author.authorName = [singersDict objectForKey:@"name"];
+            author.authorId = [singersDict objectForKey:@"id"];
+            
             [track setTitle:[song objectForKey:@"title"]];
             [track setUrl:[song objectForKey:@"url"]];
             [track setAuthor: author];
             [track setImgUrl:[song objectForKey:@"picture"]];
             [track setDuration:[song objectForKey:@"length"]];
+            [track setSid:[song objectForKey:@"sid"]];
             
             
             [allTracks addObject:track];
