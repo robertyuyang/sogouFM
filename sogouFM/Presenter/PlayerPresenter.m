@@ -126,7 +126,7 @@
         return nil;
     }
     else{
-        return [[TrackPresenter alloc] initWithTrack:[self.playList firstObject]];
+        return [[TrackPresenter alloc] initWithTrack:self.currentTrack];
     }
     
 }

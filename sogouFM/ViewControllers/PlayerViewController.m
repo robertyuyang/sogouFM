@@ -76,6 +76,7 @@
     
     //[self.playListTableView registerClass:[PlayListTableViewCell class] forCellReuseIdentifier:@"PlayListTableViewCell"];
     self.playListTableView.dataSource = self;
+    self.playListTableView.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
     
     
@@ -165,12 +166,9 @@
    
     TrackPresenter* trackPresenter = [self.playerPresenter currentTrackPresenter];
     self.titleLabel.text = [trackPresenter trackTitle];
-    //self.titleLabel.text = self.track.title;
     [self.titleLabel sizeToFit];
     self.authorLabel.text = [trackPresenter trackAuthorName];
-    //self.authorLabel.text = self.track.author.authorName;
     [self.authorLabel sizeToFit];
-    //self.imageView.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:self.track.imgUrl]]];
     self.imageView.image = [trackPresenter trackImage];
     
     
@@ -209,7 +207,7 @@
     [self.playListTableView reloadData];
 }
 -(void)currentTrackChanged {
-    
+    [self playAudio];
 }
 
 -(void)playerProgressUpdatedWithCurrentTimeText:(NSString*)currentTimeText
@@ -257,6 +255,13 @@
     cell.coverImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:track.imgUrl]]];*/
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.playerPresenter switchIndex:indexPath.row];
+    
+    
 }
 
 /*

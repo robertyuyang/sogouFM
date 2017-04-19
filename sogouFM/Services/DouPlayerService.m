@@ -70,22 +70,25 @@
     audioFile.audioFileURL = [NSURL URLWithString: track.url];
     audioFile.artist = track.author.authorName;
     audioFile.title = track.title;
+    
+    [self.douplayer removeObserver:self forKeyPath:@"duration"];
     self.douplayer = [DOUAudioStreamer streamerWithAudioFile: audioFile];
-    
-    
     [self.douplayer addObserver:self forKeyPath:@"duration" options:NSKeyValueObservingOptionNew context:nil];
     [self.douplayer play];
+   
+    if(self.currentTimeTimer == nil){
+        self.currentTimeTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+        dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+        uint64_t interval = (uint64_t)(1.0 * NSEC_PER_SEC);
+        dispatch_source_set_timer(self.currentTimeTimer, start, interval, 0);
+        dispatch_source_set_event_handler(self.currentTimeTimer, ^{
+            if(self.delegate){
+                [self.delegate PlayerServiceProgressUpdated:[self.douplayer currentTime] duration: self.douplayer.duration];
+            }
+        });
+        dispatch_resume(self.currentTimeTimer);
+    }
     
-    self.currentTimeTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-    dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
-    uint64_t interval = (uint64_t)(1.0 * NSEC_PER_SEC);
-    dispatch_source_set_timer(self.currentTimeTimer, start, interval, 0);
-    dispatch_source_set_event_handler(self.currentTimeTimer, ^{
-        if(self.delegate){
-            [self.delegate PlayerServiceProgressUpdated:[self.douplayer currentTime] duration: self.douplayer.duration];
-        }
-    });
-    dispatch_resume(self.currentTimeTimer);
 }
 
 -(void)play{
