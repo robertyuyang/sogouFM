@@ -13,4 +13,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 
+@property (nonatomic, strong) RACDisposable* coverImageDispose;
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73F9C2A2A7EEE7FC684CDE47 /* Pods_sogouFM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4B57E1CF5D7F4E0076537D /* Pods_sogouFM.framework */; };
 		E1C1ED401E9FB1EE00E963A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1ED3F1E9FB1EE00E963A1 /* main.m */; };
 		E1C1ED431E9FB1EE00E963A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1ED421E9FB1EE00E963A1 /* AppDelegate.m */; };
 		E1C1ED491E9FB1EE00E963A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1C1ED471E9FB1EE00E963A1 /* Main.storyboard */; };
@@ -38,11 +39,14 @@
 		E1C3B3661EA3BF87002B3F96 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3631EA3BF87002B3F96 /* PlayerViewController.m */; };
 		E1C3B3671EA3BF87002B3F96 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3651EA3BF87002B3F96 /* ViewController.m */; };
 		E1C3B36D1EA4811A002B3F96 /* PlayListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B36C1EA4811A002B3F96 /* PlayListTableViewCell.m */; };
-		E1C3B3711EA516B3002B3F96 /* PlayerPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3701EA516B3002B3F96 /* PlayerPresenter.m */; };
-		E1C3B3741EA516F4002B3F96 /* TrackPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3731EA516F4002B3F96 /* TrackPresenter.m */; };
+		E1C3B3711EA516B3002B3F96 /* PlayerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3701EA516B3002B3F96 /* PlayerViewModel.m */; };
+		E1C3B3741EA516F4002B3F96 /* TrackViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3731EA516F4002B3F96 /* TrackViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F4B57E1CF5D7F4E0076537D /* Pods_sogouFM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sogouFM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68347B36EDB834857A747D58 /* Pods-sogouFM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sogouFM.release.xcconfig"; path = "Pods/Target Support Files/Pods-sogouFM/Pods-sogouFM.release.xcconfig"; sourceTree = "<group>"; };
+		7D4B41B7B5669B49DA4545F0 /* Pods-sogouFM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sogouFM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sogouFM/Pods-sogouFM.debug.xcconfig"; sourceTree = "<group>"; };
 		E1C1ED3B1E9FB1EE00E963A1 /* sogouFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sogouFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C1ED3F1E9FB1EE00E963A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E1C1ED411E9FB1EE00E963A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,10 +113,10 @@
 		E1C3B3651EA3BF87002B3F96 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E1C3B36B1EA4811A002B3F96 /* PlayListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayListTableViewCell.h; sourceTree = "<group>"; };
 		E1C3B36C1EA4811A002B3F96 /* PlayListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayListTableViewCell.m; sourceTree = "<group>"; };
-		E1C3B36F1EA516B3002B3F96 /* PlayerPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerPresenter.h; sourceTree = "<group>"; };
-		E1C3B3701EA516B3002B3F96 /* PlayerPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerPresenter.m; sourceTree = "<group>"; };
-		E1C3B3721EA516F4002B3F96 /* TrackPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackPresenter.h; sourceTree = "<group>"; };
-		E1C3B3731EA516F4002B3F96 /* TrackPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackPresenter.m; sourceTree = "<group>"; };
+		E1C3B36F1EA516B3002B3F96 /* PlayerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewModel.h; sourceTree = "<group>"; };
+		E1C3B3701EA516B3002B3F96 /* PlayerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewModel.m; sourceTree = "<group>"; };
+		E1C3B3721EA516F4002B3F96 /* TrackViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackViewModel.h; sourceTree = "<group>"; };
+		E1C3B3731EA516F4002B3F96 /* TrackViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,17 +124,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73F9C2A2A7EEE7FC684CDE47 /* Pods_sogouFM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B8F195194A1B19D14F81C0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F4B57E1CF5D7F4E0076537D /* Pods_sogouFM.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		772592489343E7CC8232D9A4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7D4B41B7B5669B49DA4545F0 /* Pods-sogouFM.debug.xcconfig */,
+				68347B36EDB834857A747D58 /* Pods-sogouFM.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E1C1ED321E9FB1EE00E963A1 = {
 			isa = PBXGroup;
 			children = (
 				E1C1ED3D1E9FB1EE00E963A1 /* sogouFM */,
 				E1C1ED3C1E9FB1EE00E963A1 /* Products */,
+				772592489343E7CC8232D9A4 /* Pods */,
+				3B8F195194A1B19D14F81C0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -283,10 +307,10 @@
 		E1C3B36E1EA51673002B3F96 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				E1C3B36F1EA516B3002B3F96 /* PlayerPresenter.h */,
-				E1C3B3701EA516B3002B3F96 /* PlayerPresenter.m */,
-				E1C3B3721EA516F4002B3F96 /* TrackPresenter.h */,
-				E1C3B3731EA516F4002B3F96 /* TrackPresenter.m */,
+				E1C3B36F1EA516B3002B3F96 /* PlayerViewModel.h */,
+				E1C3B3701EA516B3002B3F96 /* PlayerViewModel.m */,
+				E1C3B3721EA516F4002B3F96 /* TrackViewModel.h */,
+				E1C3B3731EA516F4002B3F96 /* TrackViewModel.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -298,9 +322,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1C1ED521E9FB1EE00E963A1 /* Build configuration list for PBXNativeTarget "sogouFM" */;
 			buildPhases = (
+				8D1D6CA609619E7B7C49EDAF /* [CP] Check Pods Manifest.lock */,
 				E1C1ED371E9FB1EE00E963A1 /* Sources */,
 				E1C1ED381E9FB1EE00E963A1 /* Frameworks */,
 				E1C1ED391E9FB1EE00E963A1 /* Resources */,
+				ABC2439939F18E009FE9C088 /* [CP] Embed Pods Frameworks */,
+				95F161B94BF2C465B7AB9823 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -358,6 +385,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8D1D6CA609619E7B7C49EDAF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		95F161B94BF2C465B7AB9823 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sogouFM/Pods-sogouFM-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABC2439939F18E009FE9C088 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sogouFM/Pods-sogouFM-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E1C1ED371E9FB1EE00E963A1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -371,13 +446,13 @@
 				E1C1ED821EA0C85300E963A1 /* DOUAudioAnalyzer.m in Sources */,
 				E1C3B3661EA3BF87002B3F96 /* PlayerViewController.m in Sources */,
 				E1C1ED861EA0C85300E963A1 /* DOUAudioFileProvider.m in Sources */,
-				E1C3B3711EA516B3002B3F96 /* PlayerPresenter.m in Sources */,
+				E1C3B3711EA516B3002B3F96 /* PlayerViewModel.m in Sources */,
 				E1C1ED881EA0C85300E963A1 /* DOUAudioLPCM.m in Sources */,
 				E1C1ED8A1EA0C85300E963A1 /* DOUAudioRenderer.m in Sources */,
 				E1C3B3671EA3BF87002B3F96 /* ViewController.m in Sources */,
 				E1C1ED891EA0C85300E963A1 /* DOUAudioPlaybackItem.m in Sources */,
 				E1C3B3591EA3A4BE002B3F96 /* DouPlayerService.m in Sources */,
-				E1C3B3741EA516F4002B3F96 /* TrackPresenter.m in Sources */,
+				E1C3B3741EA516F4002B3F96 /* TrackViewModel.m in Sources */,
 				E1C1ED901EA0C85300E963A1 /* DOUMPMediaLibraryAssetLoader.m in Sources */,
 				E1C1ED831EA0C85300E963A1 /* DOUAudioDecoder.m in Sources */,
 				E1C1ED811EA0C85300E963A1 /* DOUAudioAnalyzer+Default.m in Sources */,
@@ -510,6 +585,7 @@
 		};
 		E1C1ED531E9FB1EE00E963A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D4B41B7B5669B49DA4545F0 /* Pods-sogouFM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DFD88F82SU;
@@ -520,11 +596,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sogou.sogouFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
 		};
 		E1C1ED541E9FB1EE00E963A1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68347B36EDB834857A747D58 /* Pods-sogouFM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DFD88F82SU;
@@ -535,6 +613,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sogou.sogouFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
 		};

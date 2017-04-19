@@ -15,8 +15,9 @@
 
 #import "PlayerServiceFactory.h"
 
-#import "PlayerPresenter.h"
-//#import "ContentServices.h"
+#import "PlayerViewModel.h"
+
+#import "ReactiveCocoa.h"
 
 
 
@@ -34,7 +35,7 @@
 @property (nonatomic, strong) NSMutableDictionary* nowPlayingInfo;
 
 //@property (nonatomic, strong) NSArray<Track*>* playList;
-@property (nonatomic, strong) PlayerPresenter* playerPresenter;
+@property (nonatomic, strong) PlayerViewModel* playerViewModel;
 @end
 
 
@@ -66,13 +67,34 @@
 }
 
 
+- (void)initViewModel {
+    
+    self.playerViewModel = [[PlayerViewModel alloc] init];
+    
+    @weakify(self);
+    [RACObserve(self.playerViewModel, trackViewModels) subscribeNext:^(id x) {
+        @strongify(self);
+        [self.playListTableView reloadData];
+    }];
+   
+    RAC(self.titleLabel, text) = RACObserve(self.playerViewModel, currentTrackViewModel.title);
+    RAC(self.authorLabel, text) = RACObserve(self.playerViewModel, currentTrackViewModel.authorName);
+    /*[RACObserve(self.playerViewModel, currentTrackViewModel.coverImg) subscribeNext:^(id x) {
+        @strongify(self);
+    }];*/
+    
+    RAC(self.imageView, image) = RACObserve(self.playerViewModel, currentTrackViewModel.coverImg);
+
+    RAC(self.currentTimeLabel, text) = RACObserve(self.playerViewModel, currentTimeText);
+    RAC(self.durationLabel, text) = RACObserve(self.playerViewModel, durationText);
+    RAC(self.Progress, value) = RACObserve(self.playerViewModel, progressPercent);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     
-    self.playerPresenter = [[PlayerPresenter alloc] init];
-    self.playerPresenter.callback = self;
-    
+    [self initViewModel];
     
     //[self.playListTableView registerClass:[PlayListTableViewCell class] forCellReuseIdentifier:@"PlayListTableViewCell"];
     self.playListTableView.dataSource = self;
@@ -84,8 +106,9 @@
 }
 
 -(void) play {
-    
-    [self.playerPresenter resume];
+   
+    [self.playerViewModel.resumeCommand execute:nil];
+    //[self.playerPresenter resume];
     //[self.playerService play];
    
     /*
@@ -99,7 +122,7 @@
     
 }
 -(void) pause {
-    [self.playerPresenter pause];
+    [self.playerViewModel.pauseCommand execute:nil];
     
     NSMutableDictionary* nowPlayingInfo = self.nowPlayingInfo;
     
@@ -121,14 +144,8 @@
     [self pause];
 }
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-    
-    /*if([keyPath isEqualToString: @"duration"]) {
-        [self updateCurrentTime: self.playerService.currentTime andDuration:self.player.duration];
-    }*/
-}
 
-
+/*
 -(void)updateProgressBar: (NSTimeInterval) currentTime
              andDuration:(NSTimeInterval) duration {
     self.Progress.maximumValue = 1;
@@ -155,14 +172,15 @@
     self.nowPlayingInfo = nowPlayingInfo;
     
     NSLog(@"%lf/%lf", currentTime, duration);
-}
+}*/
 
 - (void) playAudio {
     
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
-    [self.playerPresenter play];
-   
+    [self.playerViewModel.playCommand execute:nil];
+  
+    /*
     TrackPresenter* trackPresenter = [self.playerPresenter currentTrackPresenter];
     self.titleLabel.text = [trackPresenter trackTitle];
     //self.titleLabel.text = self.track.title;
@@ -173,7 +191,7 @@
     //self.imageView.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:self.track.imgUrl]]];
     self.imageView.image = [trackPresenter trackImage];
     
-    
+    */
     
     
     
@@ -203,7 +221,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mask  PlayerPresenterDelegate
+/*#pragma mask  PlayerPresenterDelegate
 
 -(void)playListChanged {
     [self.playListTableView reloadData];
@@ -222,14 +240,17 @@
     
     self.currentTimeLabel.text = currentTimeText;
     self.durationLabel.text = durationText;
-}
+}*/
 
 
 #pragma mask UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return [self.playerPresenter trackCount];
+   
+    if(self.playerViewModel == nil || self.playerViewModel.trackViewModels == nil){
+        return 0;
+    }
+    return self.playerViewModel.trackViewModels.count;
 }
 
 
@@ -238,18 +259,31 @@
     
     PlayListTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"PlayListTableViewCell" forIndexPath:indexPath];
    
-    if(self.playerPresenter == nil){
+    if(self.playerViewModel == nil){
         return nil;
     }
-    if([self.playerPresenter trackCount] <= indexPath.row){
+    if(self.playerViewModel.trackViewModels.count <= indexPath.row){
         return nil;
     }
     
+    TrackViewModel* trackViewModel = [self.playerViewModel.trackViewModels objectAtIndex:indexPath.row];
+   
+    cell.titleLabel.text = trackViewModel.title;
+    cell.authorLabel.text = trackViewModel.authorName;
     
-    TrackPresenter* trackPresenter = [self.playerPresenter trackForIndex:indexPath.row];
-    cell.titleLabel.text = [trackPresenter trackTitle];
-    cell.authorLabel.text = [trackPresenter trackAuthorName];
-    cell.imageView.image = [trackPresenter trackImage];
+   
+    
+    if(cell.coverImageDispose != nil){
+        [cell.coverImageDispose dispose];
+    }
+    cell.coverImageDispose = [RACObserve(trackViewModel, coverImg) subscribeNext:^(id x) {
+        if(x != nil){
+            cell.coverImageView.image = (UIImage*)x;
+        }
+    }];
+  
+    //[RAC(cell.imageView, image) dispose];
+    //RAC(cell.imageView, image) = RACObserve(trackViewModel, coverImg);
     
     /*Track* track = [self.playList objectAtIndex:indexPath.row];
     cell.titleLabel.text =  track.title;
