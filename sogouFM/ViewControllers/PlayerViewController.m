@@ -18,7 +18,7 @@
 
 
 
-@interface PlayerViewController ()<UITableViewDataSource>
+@interface PlayerViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UISlider *Progress;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -79,8 +79,9 @@
   
     //[self.playListTableView registerClass:[PlayListTableViewCell class] forCellReuseIdentifier:@"PlayListTableViewCell"];
     self.playListTableView.dataSource = self;
+    self.playListTableView.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.imageView.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:self.track.imgUrl]]];
+    
     
     [self playAudio];
     // Do any additional setup after loading the view.
@@ -159,17 +160,23 @@
     NSLog(@"%lf/%lf", currentTime, duration);
 }
 
-- (void) playAudio {
-    
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-    
-    [self.playerService playWithTrack:self.track];
+- (void)displayTrackInfo{
     
     self.titleLabel.text = self.track.title;
     [self.titleLabel sizeToFit];
     self.authorLabel.text = self.track.author.authorName;
     [self.authorLabel sizeToFit];
     
+    self.imageView.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:self.track.imgUrl]]];
+}
+
+- (void) playAudio {
+    
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    
+    [self.playerService playWithTrack:self.track];
+    
+    [self displayTrackInfo];
     
     //[self.playerService addObserver:self forKeyPath:@"duration" options:NSKeyValueObservingOptionNew context:nil];
     
@@ -223,6 +230,15 @@
     cell.coverImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:track.imgUrl]]];
     
     return cell;
+}
+
+#pragma mask UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Track* track = [self.playList objectAtIndex:indexPath.row];
+    if(track){
+        self.track = track;
+        [self playAudio];
+    }
 }
 
 /*
