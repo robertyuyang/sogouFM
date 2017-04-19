@@ -85,7 +85,7 @@
     
     self.switchTrackCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         @strongify(self);
-        NSInteger index = input;
+        NSInteger index = [input integerValue];
         [self switchIndex:index];
         return [RACSignal empty];
     }];

@@ -77,6 +77,13 @@
         [self.playListTableView reloadData];
     }];
    
+    
+    [RACObserve(self.playerViewModel, currentTrackViewModel) subscribeNext:^(id x) {
+        @strongify(self);
+        [self playAudio];
+    }];
+    
+    
     RAC(self.titleLabel, text) = RACObserve(self.playerViewModel, currentTrackViewModel.title);
     RAC(self.authorLabel, text) = RACObserve(self.playerViewModel, currentTrackViewModel.authorName);
     /*[RACObserve(self.playerViewModel, currentTrackViewModel.coverImg) subscribeNext:^(id x) {
@@ -98,6 +105,8 @@
     
     //[self.playListTableView registerClass:[PlayListTableViewCell class] forCellReuseIdentifier:@"PlayListTableViewCell"];
     self.playListTableView.dataSource = self;
+    self.playListTableView.delegate = self;
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     
@@ -291,6 +300,10 @@
     cell.coverImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:track.imgUrl]]];*/
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.playerViewModel.switchTrackCommand execute:(id)@(indexPath.row)];
 }
 
 /*
