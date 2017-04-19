@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		73F9C2A2A7EEE7FC684CDE47 /* Pods_sogouFM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4B57E1CF5D7F4E0076537D /* Pods_sogouFM.framework */; };
+		E14EE87C1EA7BE9F0013B50C /* PlayerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E14EE8791EA7BE9F0013B50C /* PlayerViewModel.m */; };
+		E14EE87D1EA7BE9F0013B50C /* TrackViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E14EE87B1EA7BE9F0013B50C /* TrackViewModel.m */; };
 		E1C1ED401E9FB1EE00E963A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1ED3F1E9FB1EE00E963A1 /* main.m */; };
 		E1C1ED431E9FB1EE00E963A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1ED421E9FB1EE00E963A1 /* AppDelegate.m */; };
 		E1C1ED491E9FB1EE00E963A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1C1ED471E9FB1EE00E963A1 /* Main.storyboard */; };
@@ -39,14 +41,16 @@
 		E1C3B3661EA3BF87002B3F96 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3631EA3BF87002B3F96 /* PlayerViewController.m */; };
 		E1C3B3671EA3BF87002B3F96 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3651EA3BF87002B3F96 /* ViewController.m */; };
 		E1C3B36D1EA4811A002B3F96 /* PlayListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B36C1EA4811A002B3F96 /* PlayListTableViewCell.m */; };
-		E1C3B3711EA516B3002B3F96 /* PlayerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3701EA516B3002B3F96 /* PlayerViewModel.m */; };
-		E1C3B3741EA516F4002B3F96 /* TrackViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C3B3731EA516F4002B3F96 /* TrackViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2F4B57E1CF5D7F4E0076537D /* Pods_sogouFM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sogouFM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68347B36EDB834857A747D58 /* Pods-sogouFM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sogouFM.release.xcconfig"; path = "Pods/Target Support Files/Pods-sogouFM/Pods-sogouFM.release.xcconfig"; sourceTree = "<group>"; };
 		7D4B41B7B5669B49DA4545F0 /* Pods-sogouFM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sogouFM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sogouFM/Pods-sogouFM.debug.xcconfig"; sourceTree = "<group>"; };
+		E14EE8781EA7BE9F0013B50C /* PlayerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewModel.h; sourceTree = "<group>"; };
+		E14EE8791EA7BE9F0013B50C /* PlayerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewModel.m; sourceTree = "<group>"; };
+		E14EE87A1EA7BE9F0013B50C /* TrackViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackViewModel.h; sourceTree = "<group>"; };
+		E14EE87B1EA7BE9F0013B50C /* TrackViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackViewModel.m; sourceTree = "<group>"; };
 		E1C1ED3B1E9FB1EE00E963A1 /* sogouFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sogouFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C1ED3F1E9FB1EE00E963A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E1C1ED411E9FB1EE00E963A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -113,10 +117,6 @@
 		E1C3B3651EA3BF87002B3F96 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E1C3B36B1EA4811A002B3F96 /* PlayListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayListTableViewCell.h; sourceTree = "<group>"; };
 		E1C3B36C1EA4811A002B3F96 /* PlayListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayListTableViewCell.m; sourceTree = "<group>"; };
-		E1C3B36F1EA516B3002B3F96 /* PlayerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewModel.h; sourceTree = "<group>"; };
-		E1C3B3701EA516B3002B3F96 /* PlayerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewModel.m; sourceTree = "<group>"; };
-		E1C3B3721EA516F4002B3F96 /* TrackViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackViewModel.h; sourceTree = "<group>"; };
-		E1C3B3731EA516F4002B3F96 /* TrackViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +148,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E14EE8771EA7BE9F0013B50C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E14EE8781EA7BE9F0013B50C /* PlayerViewModel.h */,
+				E14EE8791EA7BE9F0013B50C /* PlayerViewModel.m */,
+				E14EE87A1EA7BE9F0013B50C /* TrackViewModel.h */,
+				E14EE87B1EA7BE9F0013B50C /* TrackViewModel.m */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		E1C1ED321E9FB1EE00E963A1 = {
 			isa = PBXGroup;
 			children = (
@@ -169,7 +180,7 @@
 		E1C1ED3D1E9FB1EE00E963A1 /* sogouFM */ = {
 			isa = PBXGroup;
 			children = (
-				E1C3B36E1EA51673002B3F96 /* Presenter */,
+				E14EE8771EA7BE9F0013B50C /* ViewModels */,
 				E1C3B3681EA480E7002B3F96 /* Views */,
 				E1C3B3611EA3BF87002B3F96 /* ViewControllers */,
 				E1C3B34C1EA28770002B3F96 /* Services */,
@@ -304,17 +315,6 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		E1C3B36E1EA51673002B3F96 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				E1C3B36F1EA516B3002B3F96 /* PlayerViewModel.h */,
-				E1C3B3701EA516B3002B3F96 /* PlayerViewModel.m */,
-				E1C3B3721EA516F4002B3F96 /* TrackViewModel.h */,
-				E1C3B3731EA516F4002B3F96 /* TrackViewModel.m */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -446,13 +446,13 @@
 				E1C1ED821EA0C85300E963A1 /* DOUAudioAnalyzer.m in Sources */,
 				E1C3B3661EA3BF87002B3F96 /* PlayerViewController.m in Sources */,
 				E1C1ED861EA0C85300E963A1 /* DOUAudioFileProvider.m in Sources */,
-				E1C3B3711EA516B3002B3F96 /* PlayerViewModel.m in Sources */,
+				E14EE87C1EA7BE9F0013B50C /* PlayerViewModel.m in Sources */,
 				E1C1ED881EA0C85300E963A1 /* DOUAudioLPCM.m in Sources */,
 				E1C1ED8A1EA0C85300E963A1 /* DOUAudioRenderer.m in Sources */,
+				E14EE87D1EA7BE9F0013B50C /* TrackViewModel.m in Sources */,
 				E1C3B3671EA3BF87002B3F96 /* ViewController.m in Sources */,
 				E1C1ED891EA0C85300E963A1 /* DOUAudioPlaybackItem.m in Sources */,
 				E1C3B3591EA3A4BE002B3F96 /* DouPlayerService.m in Sources */,
-				E1C3B3741EA516F4002B3F96 /* TrackViewModel.m in Sources */,
 				E1C1ED901EA0C85300E963A1 /* DOUMPMediaLibraryAssetLoader.m in Sources */,
 				E1C1ED831EA0C85300E963A1 /* DOUAudioDecoder.m in Sources */,
 				E1C1ED811EA0C85300E963A1 /* DOUAudioAnalyzer+Default.m in Sources */,
